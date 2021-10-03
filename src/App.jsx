@@ -4,15 +4,18 @@ import Intro from "./components/intro/Intro";
 import Skills from "./components/skills/Skills";
 import Work from "./components/works/Works";
 import Contact from "./components/contact/Contact";
+import { useState } from "react";
 
 //import Portfolio from "./components/portfolio/Portfolio";
 // import Testimonials from "./components/testimonials/Testimonials";
 
 
 function App() {
+
+  const [menuOpen, setMenuOpen] = useState(true)
   return (
     <div className="app">
-      <Topbar />
+      <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="sections">
         <Intro />
         <Skills />
