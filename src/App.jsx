@@ -2,7 +2,7 @@ import "./app.scss";
 import Topbar from "./components/topbar/Topbar";
 import Intro from "./components/intro/Intro";
 import Skills from "./components/skills/Skills";
-import Work from "./components/works/Works";
+// import Work from "./components/works/Works";
 import Contact from "./components/contact/Contact";
 import { useState } from "react";
 import Menu from "./components/menu/Menu"
@@ -21,7 +21,7 @@ function App() {
       <div className="sections">
         <Intro />
         <Skills />
-        <Work />
+        {/* <Work /> */}
         <Contact />
       </div>
     </div>
