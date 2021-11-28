@@ -24,7 +24,7 @@
         justify-content: center;
         flex-wrap: wrap;
 
-        .item{
+        .item{ 
             width: 220px;
             height: 150px;
             border-radius: 20px;
@@ -35,7 +35,7 @@
             justify-content: center;
             color: white;
             position: relative;
-            transition: all .5s ease;
+            transition: all .8s ease;
             cursor: pointer;
 
             h3{
@@ -51,10 +51,10 @@
             }
 
             &:hover{
-                background-color:rgb(63, 63, 63);
+                background-color:$mainColor;
 
                 img{
-                    opacity: 0.2;
+                    opacity: 0.8;
                     z-index: 0;
                 }
             }

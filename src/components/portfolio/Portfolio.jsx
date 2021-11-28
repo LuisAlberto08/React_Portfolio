@@ -1,27 +1,40 @@
 import {useEffect, useState} from 'react'
 import PortfolioList from '../portfolioList/PortfolioList'
 import "./portfolio.scss"
+import {webPortfolio,digitalDesign} from "../../data.js"
+
+
+
 export default function Portfolio() {
-    const [selected, setSelected] = useState("featured")
+    const [selected, setSelected] = useState("web development");
+    const [data, setData] = useState([]);
+    
     const list = [
+        
         {
-            id:'featured',
-            title:"Featured",
-        },
-        {
-            id:"web app",
-            title:"Web Applications",
+            id:"web",
+            title:"Web Development"
         },        
         {
             id:"design",
-            title:"Design",
+            title:"Digital Design"
         },
     ]
+    useEffect(()=>{
+        switch(selected){
+            case "web development": setData(webPortfolio);
+            break;
+            case "digital design": setData(digitalDesign);
+            break;
+            default:setData(webPortfolio);
+        }
+    },[selected]);
+
     return (
         <div className="portfolio" id="portfolio">
                 <h1>Portfolio</h1>
                 <ul>
-                   {list.map((item)=>(
+                   {list.map(item=>(
                        <PortfolioList title={item.title} 
                        active={selected === item.id} 
                        setSelected={setSelected} 
@@ -29,22 +42,14 @@ export default function Portfolio() {
                    ))} 
                 </ul>
                 <div className="container">
+                 {data.map( (d)=>{
                     <div className="item">
-                        <img src="assets/demo-portfolio-pic.png" alt="" />
-                        <h3>Mateo Blanco's Portfolio</h3>
+                        <img src= {d.image} alt="" />
+                        <h3>{d.title}</h3>
                     </div>
-                    <div className="item">
-                        <img src="assets/demo-portfolio-pic.png" alt="" />
-                        <h3>Mateo Blanco's Portfolio</h3>
-                    </div>
-                    <div className="item">
-                        <img src="assets/demo-portfolio-pic.png" alt="" />
-                        <h3>Mateo Blanco's Portfolio</h3>
-                    </div>
-                    <div className="item">
-                        <img src="assets/demo-portfolio-pic.png" alt="" />
-                        <h3>Mateo Blanco's Portfolio</h3>
-                    </div> 
+                    
+                })
+            }
                 </div>
         </div>
     )
